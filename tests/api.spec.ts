@@ -3,7 +3,7 @@ import { ApiAssertions } from '../src/utils/api-client';
 import { TestDataGenerator } from '../src/utils/test-data-generator';
 import { Post, Comment } from '../src/types';
 
-function attachApiContext(name: string, method: string, url: string, response: any) {
+const attachApiContext = async (name: string, method: string, url: string, response: any) => {
   test.info().attach(name, {
     body: Buffer.from(
       JSON.stringify(
@@ -20,7 +20,7 @@ function attachApiContext(name: string, method: string, url: string, response: a
     ),
     contentType: 'application/json',
   });
-}
+};
 
 test.describe('JSONPlaceholder API - Posts Endpoint', () => {
   test('should retrieve all posts', async ({ apiClient }) => {
