@@ -1,0 +1,28 @@
+{
+  "name": "api-automation-framework",
+  "version": "1.0.0",
+  "description": "API automation test framework using Playwright and TypeScript",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "playwright test && npm run report:allure:generate",
+    "test:headed": "playwright test --headed && npm run report:allure:generate",
+    "test:debug": "playwright test --debug && npm run report:allure:generate",
+    "test:ui": "playwright test --ui && npm run report:allure:generate",
+    "report:allure:generate": "node ./scripts/generate-allure-report.js",
+    "report:allure:open": "node ./scripts/generate-allure-report.js --open",
+    "report:allure:serve": "node ./scripts/serve-allure-report.js",
+    "build": "tsc",
+    "clean": "rm -rf dist"
+  },
+  "keywords": ["api", "automation", "testing", "playwright", "typescript"],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@faker-js/faker": "^8.0.0",
+    "@playwright/test": "^1.40.0",
+    "@types/node": "^20.0.0",
+    "typescript": "^5.3.0",
+    "allure-playwright": "^2.0.0",
+    "allure-commandline": "^2.16.0"
+  }
+}
